@@ -30,8 +30,9 @@ export default function App({id}) {
     }
 
     useEffect(() => {
-      console.log(input)
-      console.log(page)
+      if(!input) {
+        return
+      }
       photoApiService.query = input
       photoApiService.page =  page
       photoApiService.fetchPhotos()
@@ -43,6 +44,7 @@ export default function App({id}) {
                 tags: el.tags}])] )
       
       )
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[ input, page] )
     
